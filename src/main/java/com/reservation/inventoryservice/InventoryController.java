@@ -33,14 +33,14 @@ public class InventoryController {
     ResponseEntity<Inventory> updateBusInventory(@RequestBody Inventory busInventory) {
         logger.debug("updateBusInventory:/buses/inventories {}",busInventory);
         Inventory busInventoryDetail = busInventoryService.saveBusInventory(busInventory);
-        return ResponseEntity.status(HttpStatus.CREATED).body(busInventoryDetail);
+        return ResponseEntity.status(HttpStatus.OK).body(busInventoryDetail);
     }
 
     @GetMapping("/buses/inventories")
     ResponseEntity<List<Inventory>> getAllBusInventories() {
         logger.debug("getAllBusInventories:/buses/inventories");
         List<Inventory> busInventoryDetail = busInventoryService.getAllBusesInventory();
-        return ResponseEntity.status(HttpStatus.CREATED).body(busInventoryDetail);
+        return ResponseEntity.status(HttpStatus.OK).body(busInventoryDetail);
     }
 
     @GetMapping("/buses/{bus_id}/inventories")
